@@ -27,11 +27,11 @@ run:
 deps:
 	$(GOGET) .
 
-# Cross compilation
 build:
-	CGO_ENABLED=0 GOOS=linux GODEBUG=netdns=go GOARCH=amd64 $(GOBUILD) -o $(BINARY_NAME) -v
-
-build-native:
 	$(GOBUILD) -o $(BINARY_NAME) -v
+
+# Cross compilation
+build-linux:
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 $(GOBUILD) -a -installsuffix cgo -ldflags="-w -s" -o $(BINARY_NAME) -v
 
 .PHONY: all build fmt test clean run deps build-linux
