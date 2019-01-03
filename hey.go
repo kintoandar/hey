@@ -12,7 +12,7 @@ import (
 
 // Index response
 func Index(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Hey!"))
+	w.Write([]byte("Hey! ✌️"))
 }
 
 // Health response
